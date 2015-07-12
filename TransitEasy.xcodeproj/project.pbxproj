@@ -14,6 +14,12 @@
 		9F6865341B3C3FA0002C02E4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F6865331B3C3FA0002C02E4 /* Images.xcassets */; };
 		9F6865371B3C3FA0002C02E4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F6865351B3C3FA0002C02E4 /* LaunchScreen.xib */; };
 		9F6865431B3C3FA0002C02E4 /* TransitEasyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6865421B3C3FA0002C02E4 /* TransitEasyTests.m */; };
+		9F68654E1B3CA18F002C02E4 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F68654D1B3CA18F002C02E4 /* ScheduleTableViewCell.m */; };
+		9F6865511B3DDFE9002C02E4 /* MetroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6865501B3DDFE9002C02E4 /* MetroViewController.m */; };
+		9F6865531B3DE503002C02E4 /* Official-Capital-Bikeshare-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9F6865521B3DE503002C02E4 /* Official-Capital-Bikeshare-logo.jpg */; };
+		9F6A94F31B51B9C400277AFD /* 100px-WMATA_Metro_Logo.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9F6A94F21B51B9C400277AFD /* 100px-WMATA_Metro_Logo.svg.png */; };
+		9F6A94F61B51C2DE00277AFD /* StationsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6A94F51B51C2DE00277AFD /* StationsTableViewCell.m */; };
+		9F6A94F91B52890B00277AFD /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F6A94F81B52890B00277AFD /* Station.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +46,16 @@
 		9F68653C1B3C3FA0002C02E4 /* TransitEasyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TransitEasyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F6865411B3C3FA0002C02E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F6865421B3C3FA0002C02E4 /* TransitEasyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransitEasyTests.m; sourceTree = "<group>"; };
+		9F68654C1B3CA18F002C02E4 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
+		9F68654D1B3CA18F002C02E4 /* ScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewCell.m; sourceTree = "<group>"; };
+		9F68654F1B3DDFE9002C02E4 /* MetroViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetroViewController.h; sourceTree = "<group>"; };
+		9F6865501B3DDFE9002C02E4 /* MetroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetroViewController.m; sourceTree = "<group>"; };
+		9F6865521B3DE503002C02E4 /* Official-Capital-Bikeshare-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Official-Capital-Bikeshare-logo.jpg"; sourceTree = "<group>"; };
+		9F6A94F21B51B9C400277AFD /* 100px-WMATA_Metro_Logo.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "100px-WMATA_Metro_Logo.svg.png"; sourceTree = "<group>"; };
+		9F6A94F41B51C2DE00277AFD /* StationsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationsTableViewCell.h; sourceTree = "<group>"; };
+		9F6A94F51B51C2DE00277AFD /* StationsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationsTableViewCell.m; sourceTree = "<group>"; };
+		9F6A94F71B52890B00277AFD /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
+		9F6A94F81B52890B00277AFD /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +101,16 @@
 				9F68652B1B3C3FA0002C02E4 /* AppDelegate.m */,
 				9F68652D1B3C3FA0002C02E4 /* ViewController.h */,
 				9F68652E1B3C3FA0002C02E4 /* ViewController.m */,
+				9F68654F1B3DDFE9002C02E4 /* MetroViewController.h */,
+				9F6865501B3DDFE9002C02E4 /* MetroViewController.m */,
+				9F6A94F71B52890B00277AFD /* Station.h */,
+				9F6A94F81B52890B00277AFD /* Station.m */,
+				9F68654C1B3CA18F002C02E4 /* ScheduleTableViewCell.h */,
+				9F68654D1B3CA18F002C02E4 /* ScheduleTableViewCell.m */,
+				9F6A94F41B51C2DE00277AFD /* StationsTableViewCell.h */,
+				9F6A94F51B51C2DE00277AFD /* StationsTableViewCell.m */,
 				9F6865301B3C3FA0002C02E4 /* Main.storyboard */,
+				9F6A94FA1B5296E300277AFD /* Images */,
 				9F6865331B3C3FA0002C02E4 /* Images.xcassets */,
 				9F6865351B3C3FA0002C02E4 /* LaunchScreen.xib */,
 				9F6865261B3C3FA0002C02E4 /* Supporting Files */,
@@ -117,6 +142,15 @@
 				9F6865411B3C3FA0002C02E4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9F6A94FA1B5296E300277AFD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9F6A94F21B51B9C400277AFD /* 100px-WMATA_Metro_Logo.svg.png */,
+				9F6865521B3DE503002C02E4 /* Official-Capital-Bikeshare-logo.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +236,8 @@
 				9F6865321B3C3FA0002C02E4 /* Main.storyboard in Resources */,
 				9F6865371B3C3FA0002C02E4 /* LaunchScreen.xib in Resources */,
 				9F6865341B3C3FA0002C02E4 /* Images.xcassets in Resources */,
+				9F6865531B3DE503002C02E4 /* Official-Capital-Bikeshare-logo.jpg in Resources */,
+				9F6A94F31B51B9C400277AFD /* 100px-WMATA_Metro_Logo.svg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,8 +255,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F6A94F61B51C2DE00277AFD /* StationsTableViewCell.m in Sources */,
 				9F68652F1B3C3FA0002C02E4 /* ViewController.m in Sources */,
 				9F68652C1B3C3FA0002C02E4 /* AppDelegate.m in Sources */,
+				9F6865511B3DDFE9002C02E4 /* MetroViewController.m in Sources */,
+				9F68654E1B3CA18F002C02E4 /* ScheduleTableViewCell.m in Sources */,
+				9F6A94F91B52890B00277AFD /* Station.m in Sources */,
 				9F6865291B3C3FA0002C02E4 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +456,7 @@
 				9F6865481B3C3FA0002C02E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F6865491B3C3FA0002C02E4 /* Build configuration list for PBXNativeTarget "TransitEasyTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +465,7 @@
 				9F68654B1B3C3FA0002C02E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
