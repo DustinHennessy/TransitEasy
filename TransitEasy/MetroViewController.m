@@ -8,12 +8,13 @@
 
 #import "MetroViewController.h"
 #import "StationsTableViewCell.h"
+#import "ViewController.h"
 
 
 @interface MetroViewController ()
 
 @property (nonatomic, strong) NSArray *trainInfoArray;
-
+@property (nonatomic, strong) IBOutlet UITableView *trainTableView;
 
 
 @end
@@ -22,13 +23,30 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return _trainInfoArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *cellIdentifier = @"trainsCell";
     StationsTableViewCell *cell = (StationsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    cell.destinationLabel.text = [[_trainInfoArray objectAtIndex:indexPath.row] objectForKey:@"destination"];
+    cell.arrivalTimeLabel.text = [NSString stringWithFormat:@"%li minutes", (long)[[[_trainInfoArray objectAtIndex:indexPath.row] objectForKey:@"min"]integerValue]];
+    cell.colorLabel.text = [[_trainInfoArray objectAtIndex:indexPath.row] objectForKey:@"line"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    if ([cell.colorLabel.text  isEqual: @"BL"]) {
+        [cell.colorLabel setBackgroundColor:[UIColor blueColor]];
+    } else if ([cell.colorLabel.text  isEqual: @"OR"]) {
+        [cell.colorLabel setBackgroundColor:[UIColor orangeColor]];
+    } else if ([cell.colorLabel.text  isEqual: @"GR"]) {
+        [cell.colorLabel setBackgroundColor:[UIColor greenColor]];
+    } else if ([cell.colorLabel.text isEqual:@"SV"]) {
+        [cell.colorLabel setBackgroundColor:[UIColor grayColor]];
+    } else if ([cell.colorLabel.text isEqual:@"RD"]) {
+        [cell.colorLabel setBackgroundColor:[UIColor redColor]];
+    } else if ([cell.colorLabel.text isEqual:@"YW"]) {
+        [cell.colorLabel setBackgroundColor:[UIColor yellowColor]];
+    }
     
     return cell;
     
@@ -38,6 +56,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"SD: %@",_stationDictionary);
+    _trainInfoArray = [(NSDictionary *) _stationDictionary objectForKey:@"upcoming_trains"];
+    NSLog(@"****************:%li",_trainInfoArray.count);
+    [_trainTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

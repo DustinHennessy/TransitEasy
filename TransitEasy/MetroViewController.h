@@ -11,7 +11,7 @@
 
 @interface MetroViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) Station *stations;
+@property (nonatomic, strong) NSDictionary *stationDictionary;
 
 
 @end

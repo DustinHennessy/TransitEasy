@@ -11,6 +11,8 @@
 
 @interface ViewController : UIViewController <CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) NSDictionary *availBikesDictionary;
+
 
 @end
 

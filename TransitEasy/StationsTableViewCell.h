@@ -10,8 +10,8 @@
 
 @interface StationsTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UILabel *destinationLabel;
-@property (nonatomic, strong) UILabel *arrivalTimeLabel;
-@property (nonatomic, strong) UILabel *colorLabel;
+@property (nonatomic, strong) IBOutlet UILabel *destinationLabel;
+@property (nonatomic, strong) IBOutlet UILabel *arrivalTimeLabel;
+@property (nonatomic, strong) IBOutlet UILabel *colorLabel;
 
 @end
