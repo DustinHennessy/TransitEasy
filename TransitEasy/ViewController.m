@@ -13,6 +13,7 @@
 #import "Station.h"
 #import "MetroViewController.h"
 #import "AppDelegate.h"
+#import "UIColor+Metro.h"
 
 @interface ViewController ()
 
@@ -23,10 +24,12 @@
 @property (nonatomic, strong) IBOutlet UISegmentedControl *bikesegmentedControl;
 @property (nonatomic, strong) IBOutlet UIImageView        *bikeShareImage;
 @property (nonatomic, strong) IBOutlet UIImageView        *metroImage;
+@property (nonatomic, strong) IBOutlet UIButton           *metroMapButton;
 @property (nonatomic, strong) NSMutableDictionary         *bikesAvailDictionary;
 @property (nonatomic, strong) NSArray                     *bikesAvailArray;
 @property (nonatomic, strong) Station                     *stationManager;
 @property (nonatomic, strong) AppDelegate                 *appDelegate;
+
 
 
 
@@ -65,12 +68,15 @@
         
         _bikeShareImage.hidden = false;
         _metroImage.hidden = true;
+        _metroMapButton.hidden = true;
+        
         NSLog(@"Bike share location: %@", [[[_stationManager bikeShareArray] objectAtIndex:indexPath.row] objectForKey:@"Name"]);
         return cell;
     } else  {
         
         _bikeShareImage.hidden = true;
         _metroImage.hidden = false;
+        _metroMapButton. hidden = false;
         
         NSLog(@"Metro cell else getting called");
         NSString *cellIdentifier = @"MetroCell";
@@ -82,17 +88,17 @@
         NSLog(@"Station Address: %@", metroCell.stationAddressLabel.text);
         
         if ([metroCell.lineTypeLabel.text  isEqual: @"BL"]) {
-            [metroCell.lineTypeLabel setBackgroundColor:[UIColor blueColor]];
+            [metroCell.lineTypeLabel setBackgroundColor:[UIColor metroBlueColor]];
         } else if ([metroCell.lineTypeLabel.text  isEqual: @"OR"]) {
-            [metroCell.lineTypeLabel setBackgroundColor:[UIColor orangeColor]];
+            [metroCell.lineTypeLabel setBackgroundColor:[UIColor metroOrangeColor]];
         } else if ([metroCell.lineTypeLabel.text  isEqual: @"GR"]) {
-            [metroCell.lineTypeLabel setBackgroundColor:[UIColor greenColor]];
+            [metroCell.lineTypeLabel setBackgroundColor:[UIColor metroGreenColor]];
         } else if ([metroCell.lineTypeLabel.text isEqual:@"RD"]) {
-            [metroCell.lineTypeLabel setBackgroundColor:[UIColor redColor]];
+            [metroCell.lineTypeLabel setBackgroundColor:[UIColor metroRedColor]];
         } else if ([metroCell.lineTypeLabel.text isEqual:@"SV"]) {
-            [metroCell.lineTypeLabel setBackgroundColor:[UIColor grayColor]];
+            [metroCell.lineTypeLabel setBackgroundColor:[UIColor metroSilverColor]];
         } else if ([metroCell.lineTypeLabel.text isEqual:@"YW"]) {
-            [metroCell.lineTypeLabel setBackgroundColor:[UIColor yellowColor]];
+            [metroCell.lineTypeLabel setBackgroundColor:[UIColor metroYellowColor]];
         }
         NSLog(@"Z%@Z", metroCell.lineTypeLabel.text);
         return metroCell;
@@ -189,6 +195,7 @@
     _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     _hostName = @"mobile-metro.herokuapp.com";
     _metroImage.hidden = true;
+    _metroMapButton.hidden = true;
     _stationManager = _appDelegate.stationManager;
     NSLog(@"Count:%li",_bikesAvailArray.count);
     [_stationManager prepareLocationMonitoring];

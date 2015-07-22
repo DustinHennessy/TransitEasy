@@ -33,14 +33,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="100px-WMATA_Metro_Logo.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="8LD-18-xPA">
-                                <rect key="frame" x="0.0" y="64" width="600" height="75"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="100px-WMATA_Metro_Logo.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="8LD-18-xPA">
+                                <rect key="frame" x="0.0" y="64" width="600" height="134"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Official-Capital-Bikeshare-logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tPW-3s-KVW">
-                                <rect key="frame" x="0.0" y="64" width="600" height="75"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Official-Capital-Bikeshare-logo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tPW-3s-KVW">
+                                <rect key="frame" x="0.0" y="64" width="600" height="134"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="f4j-kZ-O6y">
-                                <rect key="frame" x="0.0" y="168" width="600" height="432"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="f4j-kZ-O6y">
+                                <rect key="frame" x="0.0" y="227" width="600" height="373"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Tze-8H-Ymh" customClass="ScheduleTableViewCell">
@@ -56,7 +56,7 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="159" id="iZu-Tj-nrI"/>
                                                         <constraint firstAttribute="height" constant="32" id="kVA-9J-eSe"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.13333334028720856" green="0.24313727021217346" blue="0.72156864404678345" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -68,7 +68,7 @@
                                                         <constraint firstAttribute="width" constant="127" id="RWU-ch-c4a"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="cgo-qa-Qxb"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <color key="textColor" red="0.13333334028720856" green="0.24313727021217346" blue="0.72156864404678345" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -78,7 +78,7 @@
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="27" id="E46-t8-k6L"/>
                                                         <constraint firstAttribute="height" constant="27" id="aVu-iw-hXB"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" red="0.13333334028720856" green="0.24313727021217346" blue="0.72156864404678345" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -88,7 +88,7 @@
                                                         <constraint firstAttribute="height" constant="32" id="Dv3-bO-mKg"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="eWR-JC-3YL"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" red="0.13333334028720856" green="0.24313727021217346" blue="0.72156864404678345" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -210,8 +210,21 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="LeO-YH-Br2"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qSQ-6e-28h">
-                                <rect key="frame" x="0.0" y="140" width="600" height="29"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NQ-Rz-CMC" userLabel="Metro map Button">
+                                <rect key="frame" x="472" y="64" width="128" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="C1H-uo-ayi"/>
+                                    <constraint firstAttribute="width" constant="128" id="bhJ-M3-1lf"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="new-metro-map.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Oy2-KQ-8OQ" kind="show" id="6C0-AC-fWU"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qSQ-6e-28h">
+                                <rect key="frame" x="0.0" y="198" width="600" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="WtA-zT-CXZ"/>
                                 </constraints>
@@ -227,23 +240,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qSQ-6e-28h" firstAttribute="top" secondItem="tPW-3s-KVW" secondAttribute="bottom" constant="1" id="3sJ-CV-dTD"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="f4j-kZ-O6y" secondAttribute="bottom" id="0Ia-Fa-Vtj"/>
+                            <constraint firstItem="qSQ-6e-28h" firstAttribute="top" secondItem="tPW-3s-KVW" secondAttribute="bottom" id="3sJ-CV-dTD"/>
                             <constraint firstItem="qSQ-6e-28h" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="3zh-GF-FyP"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="f4j-kZ-O6y" secondAttribute="bottom" id="4Gy-MN-GIF"/>
                             <constraint firstItem="tPW-3s-KVW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="4yY-bl-bi3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qSQ-6e-28h" secondAttribute="trailing" constant="-16" id="8kf-eh-DEX"/>
-                            <constraint firstItem="qSQ-6e-28h" firstAttribute="top" secondItem="8LD-18-xPA" secondAttribute="bottom" constant="1" id="ARS-uU-cMP"/>
+                            <constraint firstItem="qSQ-6e-28h" firstAttribute="top" secondItem="8LD-18-xPA" secondAttribute="bottom" id="ARS-uU-cMP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="f4j-kZ-O6y" secondAttribute="trailing" constant="-16" id="I9c-rh-Fhk"/>
                             <constraint firstItem="qSQ-6e-28h" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="108" id="JWX-WC-V49"/>
                             <constraint firstItem="8LD-18-xPA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="MSE-gl-o8a"/>
                             <constraint firstItem="8LD-18-xPA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="bMq-Qn-z2h"/>
+                            <constraint firstItem="qSQ-6e-28h" firstAttribute="top" secondItem="6NQ-Rz-CMC" secondAttribute="bottom" constant="34" id="cmU-pz-ybR"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="f4j-kZ-O6y" secondAttribute="bottom" id="dgM-6o-4W2"/>
                             <constraint firstItem="f4j-kZ-O6y" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="eU1-hP-8Hd"/>
                             <constraint firstItem="tPW-3s-KVW" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="efy-Tc-tSn"/>
                             <constraint firstItem="tPW-3s-KVW" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="fq0-Sz-dg9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="tPW-3s-KVW" secondAttribute="trailing" constant="-16" id="hml-yz-C0X"/>
                             <constraint firstItem="tPW-3s-KVW" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="nEY-3w-UJ5"/>
+                            <constraint firstItem="6NQ-Rz-CMC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="ptD-fh-APn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="8LD-18-xPA" secondAttribute="trailing" constant="-16" id="uYg-Rg-sXm"/>
                             <constraint firstItem="f4j-kZ-O6y" firstAttribute="top" secondItem="tPW-3s-KVW" secondAttribute="bottom" constant="29" id="wdR-fA-47w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6NQ-Rz-CMC" secondAttribute="trailing" constant="-16" id="xb6-gM-s0b"/>
                             <constraint firstItem="f4j-kZ-O6y" firstAttribute="top" secondItem="qSQ-6e-28h" secondAttribute="bottom" id="ynf-dq-Pt3"/>
                         </constraints>
                         <variation key="default">
@@ -267,6 +284,7 @@
                         <outlet property="bikeShareImage" destination="tPW-3s-KVW" id="cF6-fp-bUH"/>
                         <outlet property="bikesegmentedControl" destination="qSQ-6e-28h" id="II1-zC-ShX"/>
                         <outlet property="metroImage" destination="8LD-18-xPA" id="tA7-jx-Okq"/>
+                        <outlet property="metroMapButton" destination="6NQ-Rz-CMC" id="E0b-uq-Oiw"/>
                         <outlet property="resultsTableView" destination="f4j-kZ-O6y" id="iFa-WF-YLt"/>
                         <segue destination="Vi6-1H-hgh" kind="show" identifier="toStationDetailSegue" id="rW2-X7-XqG"/>
                     </connections>
@@ -352,9 +370,51 @@
             </objects>
             <point key="canvasLocation" x="1142" y="336"/>
         </scene>
+        <!--Metro Map View Controller-->
+        <scene sceneID="ztY-7G-X2K">
+            <objects>
+                <viewController id="Oy2-KQ-8OQ" customClass="MetroMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L8Z-GD-OhF"/>
+                        <viewControllerLayoutGuide type="bottom" id="AgE-GE-TVn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vaz-oR-24o">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="new-metro-map-for-dl1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6Og-CF-Mrb">
+                                <rect key="frame" x="-163" y="0.0" width="926" height="621"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="N7b-8U-G9W" appends="YES" id="SIp-hk-TCM"/>
+                                    <outletCollection property="gestureRecognizers" destination="LfB-yh-Ue4" appends="YES" id="cj4-11-xC3"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="51B-oP-mSF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="N7b-8U-G9W">
+                    <connections>
+                        <action selector="handlePan:" destination="Oy2-KQ-8OQ" id="wQZ-1E-4EM"/>
+                        <outlet property="delegate" destination="Oy2-KQ-8OQ" id="VWy-EI-f3d"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pinchGestureRecognizer id="LfB-yh-Ue4">
+                    <connections>
+                        <action selector="handlePinch:" destination="Oy2-KQ-8OQ" id="Paf-uj-vqo"/>
+                        <outlet property="delegate" destination="Oy2-KQ-8OQ" id="qjV-w8-fru"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="844" y="1084"/>
+        </scene>
     </scenes>
     <resources>
         <image name="100px-WMATA_Metro_Logo.svg.png" width="100" height="128"/>
         <image name="Official-Capital-Bikeshare-logo.jpg" width="551" height="182"/>
+        <image name="new-metro-map-for-dl1.jpg" width="1600" height="951"/>
+        <image name="new-metro-map.png" width="620" height="349"/>
     </resources>
 </document>

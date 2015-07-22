@@ -9,6 +9,7 @@
 #import "MetroViewController.h"
 #import "StationsTableViewCell.h"
 #import "ViewController.h"
+#import "UIColor+Metro.h"
 
 
 @interface MetroViewController ()
@@ -35,17 +36,17 @@
     cell.colorLabel.text = [[_trainInfoArray objectAtIndex:indexPath.row] objectForKey:@"line"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if ([cell.colorLabel.text  isEqual: @"BL"]) {
-        [cell.colorLabel setBackgroundColor:[UIColor blueColor]];
+        [cell.colorLabel setBackgroundColor:[UIColor metroBlueColor]];
     } else if ([cell.colorLabel.text  isEqual: @"OR"]) {
-        [cell.colorLabel setBackgroundColor:[UIColor orangeColor]];
+        [cell.colorLabel setBackgroundColor:[UIColor metroOrangeColor]];
     } else if ([cell.colorLabel.text  isEqual: @"GR"]) {
-        [cell.colorLabel setBackgroundColor:[UIColor greenColor]];
+        [cell.colorLabel setBackgroundColor:[UIColor metroGreenColor]];
     } else if ([cell.colorLabel.text isEqual:@"SV"]) {
-        [cell.colorLabel setBackgroundColor:[UIColor grayColor]];
+        [cell.colorLabel setBackgroundColor:[UIColor metroSilverColor]];
     } else if ([cell.colorLabel.text isEqual:@"RD"]) {
-        [cell.colorLabel setBackgroundColor:[UIColor redColor]];
+        [cell.colorLabel setBackgroundColor:[UIColor metroRedColor]];
     } else if ([cell.colorLabel.text isEqual:@"YW"]) {
-        [cell.colorLabel setBackgroundColor:[UIColor yellowColor]];
+        [cell.colorLabel setBackgroundColor:[UIColor metroYellowColor]];
     }
     
     return cell;
