@@ -10,6 +10,8 @@
 
 @implementation Station
 
+bool serverAvailable = false;
+
 + (id)sharedInstance {
     static Station *sharedInstance = nil;
     @synchronized(self) {
@@ -69,8 +71,7 @@
                 break;
         }
     } else {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Location Services" message:@"Turn on your location services" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//        [alert show];
+
     }
 }
 
@@ -78,10 +79,10 @@
 - (void)getData {
     NSLog(@"Getting Data 1");
     _hostName = @"mobile-metro.herokuapp.com/";
+
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@/?user_latitude=%f&user_longitude=%f", _hostName, _lastLocation.coordinate.latitude, _lastLocation.coordinate.longitude]];
     NSLog(@"--> %f", _lastLocation.coordinate.latitude);
     NSURLRequest *urlReq = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60];
-    
     [NSURLConnection sendAsynchronousRequest:urlReq queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         NSLog(@"Getting Data 2");
         NSError *jsonError = nil;

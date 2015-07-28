@@ -24,6 +24,7 @@
 		9FB0281F1B600A05007D0021 /* new-metro-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 9FB0281E1B600A05007D0021 /* new-metro-map.png */; };
 		9FB028241B600F26007D0021 /* MetroMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB028231B600F26007D0021 /* MetroMapViewController.m */; };
 		9FB028261B601593007D0021 /* new-metro-map-for-dl1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9FB028251B601593007D0021 /* new-metro-map-for-dl1.jpg */; };
+		9FB0285B1B62C1C2007D0021 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FB0285A1B62C1C2007D0021 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		9FB028221B600F26007D0021 /* MetroMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetroMapViewController.h; sourceTree = "<group>"; };
 		9FB028231B600F26007D0021 /* MetroMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetroMapViewController.m; sourceTree = "<group>"; };
 		9FB028251B601593007D0021 /* new-metro-map-for-dl1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "new-metro-map-for-dl1.jpg"; path = "../new-metro-map-for-dl1.jpg"; sourceTree = "<group>"; };
+		9FB028591B62C1C2007D0021 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		9FB0285A1B62C1C2007D0021 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				9F6A94F41B51C2DE00277AFD /* StationsTableViewCell.h */,
 				9F6A94F51B51C2DE00277AFD /* StationsTableViewCell.m */,
 				9F6865301B3C3FA0002C02E4 /* Main.storyboard */,
+				9FB028591B62C1C2007D0021 /* Reachability.h */,
+				9FB0285A1B62C1C2007D0021 /* Reachability.m */,
 				9F6A94FA1B5296E300277AFD /* Images */,
 				9F6865331B3C3FA0002C02E4 /* Images.xcassets */,
 				9FB027B81B5EE47E007D0021 /* UIColor+Metro.m */,
@@ -277,6 +282,7 @@
 				9F6A94F61B51C2DE00277AFD /* StationsTableViewCell.m in Sources */,
 				9FB027BA1B5EE47E007D0021 /* UIColor+Metro.m in Sources */,
 				9F68652F1B3C3FA0002C02E4 /* ViewController.m in Sources */,
+				9FB0285B1B62C1C2007D0021 /* Reachability.m in Sources */,
 				9F68652C1B3C3FA0002C02E4 /* AppDelegate.m in Sources */,
 				9F6865511B3DDFE9002C02E4 /* MetroViewController.m in Sources */,
 				9F68654E1B3CA18F002C02E4 /* ScheduleTableViewCell.m in Sources */,

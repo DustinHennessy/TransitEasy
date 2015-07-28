@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "Reachability.h"
 
 @interface Station : NSObject <CLLocationManagerDelegate>
 

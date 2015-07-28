@@ -12,8 +12,8 @@
 #import "StationsTableViewCell.h"
 #import "Station.h"
 #import "MetroViewController.h"
-#import "AppDelegate.h"
 #import "UIColor+Metro.h"
+
 
 @interface ViewController ()
 
@@ -32,7 +32,6 @@
 
 
 
-
 @end
 
 @implementation ViewController
@@ -42,7 +41,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (_bikesegmentedControl.selectedSegmentIndex == 0) {
-//        return _stationArray.count;
         return [[_stationManager bikeShareArray] count];
     } else {
         return [[_stationManager stationArray] count];
@@ -81,9 +79,12 @@
         NSLog(@"Metro cell else getting called");
         NSString *cellIdentifier = @"MetroCell";
         ScheduleTableViewCell *metroCell = (ScheduleTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        metroCell.stationNameLabel.text = [[[_stationManager stationArray] objectAtIndex:indexPath.row] objectForKey:@"station_name"];
+        NSDictionary *stationDict = [[_stationManager stationArray] objectAtIndex:indexPath.row];
+        metroCell.stationNameLabel.text = [stationDict objectForKey:@"station_name"];
+        float distance = [[stationDict objectForKey:@"station_distance"] floatValue];
+        metroCell.stationAddressLabel.text = [NSString stringWithFormat:@"%.1f Miles",distance];
         NSLog(@"ZZZZZZZZZZ %@", [[_stationArray objectAtIndex:indexPath.row] objectForKey:@"station_name"]);
-        metroCell.lineTypeLabel.text = [[[_stationManager stationArray] objectAtIndex:indexPath.row] objectForKey:@"line_1"];
+        metroCell.lineTypeLabel.text = [stationDict objectForKey:@"line_1"];
         metroCell.selectionStyle = UITableViewCellSelectionStyleNone;
         NSLog(@"Station Address: %@", metroCell.stationAddressLabel.text);
         
@@ -97,7 +98,7 @@
             [metroCell.lineTypeLabel setBackgroundColor:[UIColor metroRedColor]];
         } else if ([metroCell.lineTypeLabel.text isEqual:@"SV"]) {
             [metroCell.lineTypeLabel setBackgroundColor:[UIColor metroSilverColor]];
-        } else if ([metroCell.lineTypeLabel.text isEqual:@"YW"]) {
+        } else if ([metroCell.lineTypeLabel.text isEqual:@"YL"]) {
             [metroCell.lineTypeLabel setBackgroundColor:[UIColor metroYellowColor]];
         }
         NSLog(@"Z%@Z", metroCell.lineTypeLabel.text);
@@ -165,6 +166,7 @@
 - (IBAction)buttonTapped:(id)sender {
     
 
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
     [_stationManager getData];
     [_resultsTableView reloadData];
     
@@ -173,6 +175,7 @@
 
 - (void)didReceiveData {
     [_resultsTableView reloadData];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
 }
 
 
@@ -188,6 +191,7 @@
 
 #pragma mark - Life Cycle Methods
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"Did load");
@@ -199,12 +203,13 @@
     _stationManager = _appDelegate.stationManager;
     NSLog(@"Count:%li",_bikesAvailArray.count);
     [_stationManager prepareLocationMonitoring];
-    
+    [_resultsTableView reloadData];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveData) name:@"ResultsDoneNotification" object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:true];
+    [_stationManager getData];
     
 }
 
