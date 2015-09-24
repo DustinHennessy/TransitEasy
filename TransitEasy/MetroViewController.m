@@ -53,9 +53,15 @@
     
 }
 
+- (void)updateTrainTimes{
+    
+    [_trainTableView reloadData];
+    NSLog(@"Table Data updated ghghghgghg");
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(updateTrainTimes) userInfo:nil repeats:true];
     // Do any additional setup after loading the view.
 }
 
@@ -63,7 +69,6 @@
     [super viewWillAppear:animated];
     NSLog(@"SD: %@",_stationDictionary);
     _trainInfoArray = [(NSDictionary *) _stationDictionary objectForKey:@"upcoming_trains"];
-    NSLog(@"****************:%li",_trainInfoArray.count);
     [_trainTableView reloadData];
 }
 

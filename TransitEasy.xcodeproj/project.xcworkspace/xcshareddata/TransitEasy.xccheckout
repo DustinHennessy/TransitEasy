@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>0FE679D7-B504-476C-9F90-2CD49E5D4A6E</string>
 	<key>IDESourceControlProjectName</key>
-	<string>TransitEasy</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>EF620C3B07F1D2A501054A918AB2473C2225B376</key>
 		<string>https://github.com/DustinHennessy/TransitEasy.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TransitEasy.xcodeproj</string>
+	<string>TransitEasy.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>EF620C3B07F1D2A501054A918AB2473C2225B376</key>

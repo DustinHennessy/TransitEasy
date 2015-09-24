@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "ViewController.h"
 
 @interface TransitEasyTests : XCTestCase
+
+@property (nonatomic, strong) ViewController *vc;
 
 @end
 
@@ -17,7 +20,7 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.vc = [[ViewController alloc]init];
 }
 
 - (void)tearDown {
@@ -25,16 +28,18 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+
+- (void)testThatViewConformsToUITableViewDataSource {
+    XCTAssertTrue([self.vc conformsToProtocol:@protocol(UITableViewDataSource)], @"View doesn't conform to Data Source protocol");
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
+//- (void)testTableViewCellCreateCellsWithReuseIdentifier
+//{
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    UITableViewCell *cell = [self.vc tableView:self.vc.resultsTableView cellForRowAtIndexPath:indexPath];
+//    NSString *expectedReuseIdentifier = [NSString stringWithFormat:@"%ld/%ld",(long)indexPath.section,(long)indexPath.row];
+//    XCTAssertTrue([cell.reuseIdentifier isEqualToString:expectedReuseIdentifier], @"Table does not create reusable cells");
+//}
+
 
 @end

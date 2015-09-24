@@ -10,10 +10,11 @@
 #import <CoreLocation/CoreLocation.h>
 #import "Reachability.h"
 
-@interface ViewController : UIViewController <CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ViewController : UIViewController <CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSDictionary *availBikesDictionary;
-
+@property (nonatomic, strong) ViewController *vc;
+@property (nonatomic, strong) IBOutlet UITableView        *resultsTableView;
 
 @end
 

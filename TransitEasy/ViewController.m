@@ -13,6 +13,8 @@
 #import "Station.h"
 #import "MetroViewController.h"
 #import "UIColor+Metro.h"
+#import "STTwitter.h"
+#import "TweetCollectionViewCell.h"
 
 
 @interface ViewController ()
@@ -20,7 +22,6 @@
 @property (nonatomic, strong) NSString                    *hostName;
 @property (nonatomic, strong) NSMutableDictionary         *resultsDictionary;
 @property (nonatomic, strong) NSMutableArray              *stationArray;
-@property (nonatomic, strong) IBOutlet UITableView        *resultsTableView;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *bikesegmentedControl;
 @property (nonatomic, strong) IBOutlet UIImageView        *bikeShareImage;
 @property (nonatomic, strong) IBOutlet UIImageView        *metroImage;
@@ -29,12 +30,35 @@
 @property (nonatomic, strong) NSArray                     *bikesAvailArray;
 @property (nonatomic, strong) Station                     *stationManager;
 @property (nonatomic, strong) AppDelegate                 *appDelegate;
-
+@property (nonatomic, strong) IBOutlet UICollectionView   *tweetCollectionView;
+@property (nonatomic, strong) NSMutableArray              *tweetFeedArray;
 
 
 @end
 
 @implementation ViewController
+
+
+#pragma mark - Collection View Methods 
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return _tweetFeedArray.count;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellIdentifier = @"tCell";
+    TweetCollectionViewCell *tCell = (TweetCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    NSDictionary *twitterDict = self.tweetFeedArray[indexPath.row];
+    tCell.tweetTextView.text = [twitterDict objectForKey:@"text"];
+    tCell.twitterHandleLabel.text = [twitterDict objectForKey:@"screen_name"];
+    return tCell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(253.0, 108.0);
+}
+
+
 
 #pragma mark - Table View Methods
 
@@ -62,7 +86,6 @@
         cell.availBikesLabel.text = [NSString stringWithFormat:@"%i", [[availabilityDict objectForKey:@"bikes_available"] intValue]];
 
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        NSLog(@"(Y) %@", [[_bikesAvailArray objectAtIndex:indexPath.row] objectForKey:@"bikes_available"]);
         
         _bikeShareImage.hidden = false;
         _metroImage.hidden = true;
@@ -114,8 +137,9 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_bikesegmentedControl.selectedSegmentIndex == 1) {
     [self performSegueWithIdentifier:@"toStationDetailSegue" sender:self];
-
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -129,38 +153,6 @@
 
 
 
-//
-//- (void)getData {
-//    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@/?user_latitude=%f&user_longitude=%f", _hostName, _lastLocation.coordinate.latitude, _lastLocation.coordinate.longitude]];
-//    NSURLRequest *urlReq = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60];
-//    
-//    [NSURLConnection sendAsynchronousRequest:urlReq queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-//        if (([data length] > 0) && (error == nil)) {
-//            NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//            NSLog(@"Got data: %@", dataString);
-//        }
-//        NSError *jsonError = nil;
-//        NSJSONSerialization *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-//        _resultsDictionary = [(NSDictionary *) json objectForKey:@"location"];
-//        _stationResultsArray = [(NSDictionary *) _resultsDictionary objectForKey:@"stations"];
-//        _bikeShareArray = [(NSDictionary *) _resultsDictionary objectForKey:@"bikeshares"];
-//        _bikesAvailDictionary = [(NSDictionary *) json objectForKey:@"availability"];
-//        _bikesAvailArray = [(NSDictionary *) _bikesAvailDictionary objectForKey:@"bikes_available"];
-//        
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [_resultsTableView reloadData];
-//        });
-////        if (_stationResultsArray.count > 0) {
-//            for (NSDictionary *resultsString in _stationResultsArray) {
-//                NSString *remoteName = [resultsString objectForKey:@"station_name"];
-//                NSLog(@"station namePPPPOPOPOPOOPO: %@", remoteName);
-////            }
-////            
-//        }
-//        
-//    }];
-//    
-//}
 
 
 - (IBAction)buttonTapped:(id)sender {
@@ -169,13 +161,15 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = true;
     [_stationManager getData];
     [_resultsTableView reloadData];
+    [_tweetCollectionView reloadData];
     
     
 }
 
 - (void)didReceiveData {
-    [_resultsTableView reloadData];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = false;
+    NSLog(@"Did recieve data");
+    [_resultsTableView reloadData];
 }
 
 
@@ -183,8 +177,9 @@
 
 
 - (IBAction)segmentedCtrlButtonClicked:(id)sender {
-    
      [_resultsTableView reloadData];
+    
+    
 }
 
 
@@ -195,21 +190,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"Did load");
-    NSLog(@"setup monitoring called");
     _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     _hostName = @"mobile-metro.herokuapp.com";
     _metroImage.hidden = true;
     _metroMapButton.hidden = true;
     _stationManager = _appDelegate.stationManager;
-    NSLog(@"Count:%li",_bikesAvailArray.count);
     [_stationManager prepareLocationMonitoring];
-    [_resultsTableView reloadData];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveData) name:@"ResultsDoneNotification" object:nil];
+    [_resultsTableView reloadData];
+    
+    STTwitterAPI *twitter = [STTwitterAPI twitterAPIAppOnlyWithConsumerKey:@"FWcT3iE9Na5wUAdJRHHTFviyK" consumerSecret:@"M4EowAYZH6hFiEoEDabbj9ooS23GGVLGddAupr26O9Mf08GFU5"];
+    [twitter verifyCredentialsWithUserSuccessBlock:^(NSString *username, NSString *userID) {
+        [twitter getUserTimelineWithScreenName:@"metrorailinfo" successBlock:^(NSArray *statuses) {
+            self.tweetFeedArray = [NSMutableArray arrayWithArray:statuses];
+        } errorBlock:^(NSError *error) {
+            NSLog(@"%@", error.debugDescription);
+        }];
+    } errorBlock:^(NSError *error) {
+        NSLog(@"%@", error.debugDescription);
+    }
+     
+     ];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:true];
     [_stationManager getData];
+    [_resultsTableView reloadData];
+    [_tweetCollectionView reloadData];
+   
+
     
 }
 

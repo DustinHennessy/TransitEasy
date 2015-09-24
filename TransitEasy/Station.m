@@ -79,7 +79,6 @@ bool serverAvailable = false;
 - (void)getData {
     NSLog(@"Getting Data 1");
     _hostName = @"mobile-metro.herokuapp.com/";
-
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@/?user_latitude=%f&user_longitude=%f", _hostName, _lastLocation.coordinate.latitude, _lastLocation.coordinate.longitude]];
     NSLog(@"--> %f", _lastLocation.coordinate.latitude);
     NSURLRequest *urlReq = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:60];
